@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Library {
+public class Library implements Comparable<Library> {
     private Integer id;
     private Integer numsOfBook;
     private Integer signupDays;
@@ -104,5 +104,10 @@ public class Library {
                 ", numsOfBooksShippedPerDay=" + numsOfBooksShippedPerDay +
                 ", books=" + books +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Library library) {
+        return Integer.compare(this.getProfit(), library.profit);
     }
 }

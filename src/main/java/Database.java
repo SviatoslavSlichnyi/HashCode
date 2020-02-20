@@ -27,7 +27,7 @@ public class Database {
         this.libraries = libraries;
     }
 
-    public void readFromFile(String fileName) throws FileNotFoundException {
+    public void read(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner in = new Scanner(file);
 
@@ -138,6 +138,12 @@ public class Database {
 
     public List<Library> getLibraries() {
         return libraries;
+    }
+
+    public void write() {
+
+
+
     }
 
 }
