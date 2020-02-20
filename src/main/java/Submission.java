@@ -1,7 +1,10 @@
 import java.util.List;
 
 public class Submission {
+
     private Integer numsOfLibs;
+    private List<LibSubmission> libSubmissions;
+
 
     public Integer getNumsOfLibs() {
         return numsOfLibs;
@@ -11,13 +14,11 @@ public class Submission {
         this.numsOfLibs = numsOfLibs;
     }
 
-    public List<LibSubmission> getLibs() {
-        return libs;
+    public List<LibSubmission> getLibSubmissions() {
+        return libSubmissions;
     }
 
-    public void setLibs(List<LibSubmission> libs) {
-        this.libs = libs;
+    public void addLibSub(LibSubmission libSubmission) {
+        libSubmissions.add(libSubmission);
     }
-
-    private List<LibSubmission> libs;
 }

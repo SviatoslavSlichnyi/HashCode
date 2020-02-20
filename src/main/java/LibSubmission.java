@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class LibSubmission {
+
     private Integer idLib;
-    private Integer numsOfBooksToSend;
     private List<Book> books;
 
     public Integer getIdLib() {
@@ -13,19 +13,11 @@ public class LibSubmission {
         this.idLib = idLib;
     }
 
-    public Integer getNumsOfBooksToSend() {
-        return numsOfBooksToSend;
-    }
-
-    public void setNumsOfBooksToSend(Integer numsOfBooksToSend) {
-        this.numsOfBooksToSend = numsOfBooksToSend;
-    }
-
     public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void addBook(Book book) {
+        books.add(book);
     }
 }
