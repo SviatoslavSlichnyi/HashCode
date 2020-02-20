@@ -4,7 +4,6 @@ public class LibSubmission {
 
     private Integer idLib;
     private List<Book> books;
-
     public Integer getIdLib() {
         return idLib;
     }

@@ -17,13 +17,13 @@ public class Service {
             Library mostValuableLibrary = libraries.get(0);
             LibSubmission libSubmission = new LibSubmission();
             libSubmission.setIdLib(mostValuableLibrary.getId());
-            libSubmission.setNumsOfBooksToSend(mostValuableLibrary.getNumsOfBookToSend());
             List<Book> mostValBooks = mostValuableLibrary.getBooks();
             for (int i = 0; i < mostValuableLibrary.getNumsOfBookToSend(); i++) {
                 libSubmission.addBook(mostValBooks.get(i));
+                markedBooks.add(mostValBooks.get(i));
             }
             submission.setNumsOfLibs(submission.getNumsOfLibs()+1);
-            submission.addLibrary(libSubmission);
+            submission.addLibSub(libSubmission);
             daysPast += mostValuableLibrary.getSignupDays();
             libraries.remove(mostValuableLibrary);
         }
@@ -39,6 +39,7 @@ public class Service {
         library.setProfit(0);
         library.setNumsOfBookToSend(0);
         for (int i=0;i<sendDays*library.getNumsOfBooksShippedPerDay() && i<books.size();i++){
+            if(markedBooks.contains(books.get(i))) continue;
             library.setProfit(library.getProfit()+books.get(i).getScore());
             library.setNumsOfBookToSend(library.getNumsOfBookToSend()+1);
         }
