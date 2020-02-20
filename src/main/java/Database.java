@@ -115,4 +115,28 @@ public class Database {
         return scoresOfBooks.get(bookId);
     }
 
+
+    public Integer getNumsOfBooks() {
+        return numsOfBooks;
+    }
+
+    public Integer getNumsOfLibraries() {
+        return numsOfLibraries;
+    }
+
+    public Integer getDaysForScanning() {
+        return daysForScanning;
+    }
+
+    public List<Integer> getScoresOfBooks() {
+        return scoresOfBooks;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Library> getLibraries() {
+        return libraries;
+    }
 }
