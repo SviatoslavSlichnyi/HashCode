@@ -16,6 +16,7 @@ public class Database {
     public Database() {
         books = new ArrayList<>();
         libraries = new ArrayList<>();
+        scoresOfBooks = new ArrayList<>();
     }
 
     public Database(Integer numsOfBooks, Integer numsOfLibraries, Integer daysForScanning, List<Book> books, List<Library> libraries) {
