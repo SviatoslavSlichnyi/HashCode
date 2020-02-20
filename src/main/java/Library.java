@@ -41,10 +41,12 @@ public class Library {
     }
 
     public List<Book> getBooks() {
-        return new ArrayList<>(books);
+        ArrayList<Book> arrayList = new ArrayList<>(this.books);
+        sortBooks(arrayList);
+        return arrayList;
     }
 
-    public void sortBooks(List<Book> bookList) {
+    private void sortBooks(List<Book> bookList) {
         bookList.sort(Collections.reverseOrder());
     }
 
