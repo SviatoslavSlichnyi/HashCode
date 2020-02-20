@@ -16,6 +16,7 @@ public class Database {
     public Database() {
         books = new ArrayList<>();
         libraries = new ArrayList<>();
+        scoresOfBooks = new ArrayList<>();
     }
 
     public Database(Integer numsOfBooks, Integer numsOfLibraries, Integer daysForScanning, List<Book> books, List<Library> libraries) {
@@ -115,4 +116,28 @@ public class Database {
         return scoresOfBooks.get(bookId);
     }
 
+
+    public Integer getNumsOfBooks() {
+        return numsOfBooks;
+    }
+
+    public Integer getNumsOfLibraries() {
+        return numsOfLibraries;
+    }
+
+    public Integer getDaysForScanning() {
+        return daysForScanning;
+    }
+
+    public List<Integer> getScoresOfBooks() {
+        return scoresOfBooks;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Library> getLibraries() {
+        return libraries;
+    }
 }
