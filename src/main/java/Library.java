@@ -7,6 +7,15 @@ public class Library implements Comparable<Library> {
     private Integer numsOfBooksShippedPerDay;
     private Set<Book> books;
     private Integer profit;
+    private Integer numsOfBookToSend;
+
+    public Integer getNumsOfBookToSend() {
+        return numsOfBookToSend;
+    }
+
+    public void setNumsOfBookToSend(Integer numsOfBookToSend) {
+        this.numsOfBookToSend = numsOfBookToSend;
+    }
 
     public void setBooks(Set<Book> books) {
         this.books = books;
