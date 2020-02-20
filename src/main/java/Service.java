@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Service {
     private Database database;
     static private Integer daysPast = 0;
-    List<Book> markedBooks;
+    List<Book> markedBooks = new ArrayList<>();
 
     public Service() {
     }
@@ -29,7 +30,6 @@ public class Service {
                 libSubmission.addBook(mostValBooks.get(i));
                 markedBooks.add(mostValBooks.get(i));
             }
-            submission.setNumsOfLibs(submission.getNumsOfLibs() + 1);
             submission.addLibSub(libSubmission);
             daysPast += mostValuableLibrary.getSignupDays();
             libraries.remove(mostValuableLibrary);

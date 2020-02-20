@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Submission {
 
     private Integer numsOfLibs;
-    private List<LibSubmission> libSubmissions;
+    private List<LibSubmission> libSubmissions = new ArrayList<>();
 
 
     public Integer getNumsOfLibs() {

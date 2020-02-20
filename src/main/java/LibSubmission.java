@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibSubmission {
 
     private Integer idLib;
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
     public Integer getIdLib() {
         return idLib;
     }
