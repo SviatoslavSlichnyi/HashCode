@@ -24,12 +24,16 @@ public class Library {
         this.id = id;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void getBooksById(Integer id) {
+        this.books.get(id);
+    }
+
+    public boolean containBook(Book book) {
+        return this.books.contains(book);
     }
 
     public Integer getNumsOfBook() {

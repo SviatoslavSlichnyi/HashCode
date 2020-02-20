@@ -5,8 +5,7 @@ public class Book {
     private Integer id;
     private Integer score;
 
-    public Book() {
-    }
+    public Book() { }
 
     public Book(Integer id, Integer score) {
         this.id = id;
