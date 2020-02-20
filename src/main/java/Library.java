@@ -35,6 +35,7 @@ public class Library implements Comparable<Library> {
 
     public Library(Integer id) {
         this.id = id;
+        books = new LinkedHashSet<>();
     }
 
     public Integer getId() {
