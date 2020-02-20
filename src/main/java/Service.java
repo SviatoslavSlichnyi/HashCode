@@ -3,13 +3,20 @@ import java.util.List;
 
 public class Service {
     private Database database;
-    static private Integer daysPast=0;
+    static private Integer daysPast = 0;
     List<Book> markedBooks;
 
-    public Submission result(){
+    public Service() {
+    }
+
+    public Service(Database database) {
+        this.database = database;
+    }
+
+    public Submission result() {
         Submission submission = new Submission();
         List<Library> libraries = database.getLibraries();
-        while (daysPast<database.getDaysForScanning() && database.getLibraries().size()>0) {
+        while (daysPast < database.getDaysForScanning() && database.getLibraries().size() > 0) {
             for (int i = 0; i < libraries.size(); i++) {
                 calculateProfit(libraries.get(i));
             }
@@ -22,7 +29,7 @@ public class Service {
                 libSubmission.addBook(mostValBooks.get(i));
                 markedBooks.add(mostValBooks.get(i));
             }
-            submission.setNumsOfLibs(submission.getNumsOfLibs()+1);
+            submission.setNumsOfLibs(submission.getNumsOfLibs() + 1);
             submission.addLibSub(libSubmission);
             daysPast += mostValuableLibrary.getSignupDays();
             libraries.remove(mostValuableLibrary);
@@ -33,31 +40,22 @@ public class Service {
     private void sortLibs(List<Library> libs) {
         libs.sort(Collections.reverseOrder());
     }
-    public void calculateProfit(Library library){
-        Integer sendDays=database.getDaysForScanning()-library.getSignupDays()-daysPast;
+
+    private void calculateProfit(Library library) {
+        Integer sendDays = database.getDaysForScanning() - library.getSignupDays() - daysPast;
         List<Book> books = library.getBooks();
         library.setProfit(0);
         library.setNumsOfBookToSend(0);
-        for (int i=0;i<sendDays*library.getNumsOfBooksShippedPerDay() && i<books.size();i++){
-            if(markedBooks.contains(books.get(i))) continue;
-            library.setProfit(library.getProfit()+books.get(i).getScore());
-            library.setNumsOfBookToSend(library.getNumsOfBookToSend()+1);
+        for (int i = 0; i < sendDays * library.getNumsOfBooksShippedPerDay() && i < books.size(); i++) {
+            if (markedBooks.contains(books.get(i))) continue;
+            library.setProfit(library.getProfit() + books.get(i).getScore());
+            library.setNumsOfBookToSend(library.getNumsOfBookToSend() + 1);
         }
 
-    }
-
-    public Service(Database database) {
-        this.database = database;
-    }
-
-    public Database getDatabase() {
-        return database;
     }
 
     public void setDatabase(Database database) {
         this.database = database;
     }
 
-    public Service() {
-    }
 }

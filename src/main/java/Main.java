@@ -13,5 +13,6 @@ public class Main {
         Submission result = service.result();
 
         database.write(result);
+
     }
 }
