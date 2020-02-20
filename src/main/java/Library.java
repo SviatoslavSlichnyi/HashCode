@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Library {
     private Integer id;
     private Integer numsOfBook;
     private Integer signupDays;
     private Integer numsOfBooksShippedPerDay;
-    private List<Book> books = new ArrayList<>(100000);
+    private Set<Book> books;
 
     public Library() {
+        books = new LinkedHashSet<>();
     }
 
     public Library(Integer id) {
@@ -28,8 +27,8 @@ public class Library {
         this.books.add(book);
     }
 
-    public void getBooksById(Integer id) {
-        this.books.get(id);
+    public Set<Book> getBooks() {
+        return books;
     }
 
     public boolean containBook(Book book) {

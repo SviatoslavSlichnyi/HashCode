@@ -116,7 +116,6 @@ public class Database {
         return scoresOfBooks.get(bookId);
     }
 
-
     public Integer getNumsOfBooks() {
         return numsOfBooks;
     }
@@ -140,4 +139,5 @@ public class Database {
     public List<Library> getLibraries() {
         return libraries;
     }
+
 }
