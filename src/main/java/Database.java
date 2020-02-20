@@ -69,11 +69,11 @@ public class Database {
     private void readLibraries(Scanner in) {
         int libsId = 0;
         while (in.hasNextLine()) {
-            ++libsId;
             String firstLine = in.nextLine();
             String secondLine = in.nextLine();
             Library lib = readLib(libsId, firstLine, secondLine);
             libraries.add(lib);
+            ++libsId;
         }
     }
 
