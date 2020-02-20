@@ -3,7 +3,14 @@ public class Service {
     static private Integer daysToDeadline;
 
 
-    public void result(){}
+    public void result(){
+        daysToDeadline=database.getDaysForScanning();
+    for ()
+    }
+
+    public void calculateProfit(Library library){
+
+    }
 
     public Service(Database database) {
         this.database = database;

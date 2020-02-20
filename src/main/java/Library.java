@@ -6,6 +6,19 @@ public class Library {
     private Integer signupDays;
     private Integer numsOfBooksShippedPerDay;
     private Set<Book> books;
+    private Integer profit;
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
+    public Integer getProfit() {
+        return profit;
+    }
+
+    public void setProfit(Integer profit) {
+        this.profit = profit;
+    }
 
     public Library() {
         books = new LinkedHashSet<>();
