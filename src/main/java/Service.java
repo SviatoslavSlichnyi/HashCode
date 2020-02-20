@@ -26,7 +26,7 @@ public class Service {
             LibSubmission libSubmission = new LibSubmission();
             libSubmission.setIdLib(mostValuableLibrary.getId());
             List<Book> mostValBooks = mostValuableLibrary.getBooks();
-            for (int i = 0; i < mostValuableLibrary.getNumsOfBookToSend(); i++) {
+            for (int i = 0; i < mostValuableLibrary.getNumsOfBookToSend() && i<mostValuableLibrary.getBooks().size(); i++) {
                 libSubmission.addBook(mostValBooks.get(i));
                 markedBooks.add(mostValBooks.get(i));
             }
@@ -47,7 +47,11 @@ public class Service {
         library.setProfit(0);
         library.setNumsOfBookToSend(0);
         for (int i = 0; i < sendDays * library.getNumsOfBooksShippedPerDay() && i < books.size(); i++) {
-            if (markedBooks.contains(books.get(i))) continue;
+            if (markedBooks.contains(books.get(i))) {
+                books.remove(i);
+                i--;
+                continue;
+            }
             library.setProfit(library.getProfit() + books.get(i).getScore());
             library.setNumsOfBookToSend(library.getNumsOfBookToSend() + 1);
         }

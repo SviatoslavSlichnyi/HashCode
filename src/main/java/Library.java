@@ -5,7 +5,7 @@ public class Library implements Comparable<Library> {
     private Integer numsOfBook;
     private Integer signupDays;
     private Integer numsOfBooksShippedPerDay;
-    private Set<Book> books;
+    private List<Book> books;
     private Integer profit;
     private Integer numsOfBookToSend;
 
@@ -17,7 +17,7 @@ public class Library implements Comparable<Library> {
         this.numsOfBookToSend = numsOfBookToSend;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 
@@ -30,12 +30,12 @@ public class Library implements Comparable<Library> {
     }
 
     public Library() {
-        books = new LinkedHashSet<>();
+        books = new ArrayList();
     }
 
     public Library(Integer id) {
         this.id = id;
-        books = new LinkedHashSet<>();
+        books = new ArrayList();
     }
 
     public Integer getId() {
@@ -51,9 +51,8 @@ public class Library implements Comparable<Library> {
     }
 
     public List<Book> getBooks() {
-        ArrayList<Book> arrayList = new ArrayList<>(this.books);
-        sortBooks(arrayList);
-        return arrayList;
+        sortBooks(this.books);
+        return books;
     }
 
     private void sortBooks(List<Book> bookList) {
