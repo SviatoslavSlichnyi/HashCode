@@ -157,7 +157,7 @@ public class Database {
     }
 
     private void writeNumOfLibs(FileWriter out, Submission sub) throws IOException {
-        Integer numOfLibs = sub.getNumsOfLibs();
+        Integer numOfLibs = sub.getLibSubmissions().size();
         out.write(String.valueOf(numOfLibs) + NEW_LINE);
     }
 
