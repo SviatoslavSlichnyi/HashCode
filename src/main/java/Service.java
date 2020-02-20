@@ -1,5 +1,7 @@
 public class Service {
     private Database database;
+    static private Integer daysToDeadline;
+
 
     public void result(){}
 
