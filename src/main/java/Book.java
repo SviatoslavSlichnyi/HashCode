@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
 
     private Integer id;
     private Integer score;
@@ -48,5 +48,10 @@ public class Book {
                 "id=" + id +
                 ", score=" + score +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book book) {
+        return Integer.compare(this.score, book.getScore());
     }
 }

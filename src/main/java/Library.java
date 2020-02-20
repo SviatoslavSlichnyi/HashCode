@@ -40,8 +40,12 @@ public class Library {
         this.books.add(book);
     }
 
-    public Set<Book> getBooks() {
-        return books;
+    public List<Book> getBooks() {
+        return new ArrayList<>(books);
+    }
+
+    public void sortBooks(List<Book> bookList) {
+        bookList.sort(Collections.reverseOrder());
     }
 
     public boolean containBook(Book book) {
