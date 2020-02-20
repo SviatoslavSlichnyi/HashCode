@@ -1,10 +1,15 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Database {
+
+    public static final String OUTPUT_FILE_NAME = "answer.out";
+    public static final String NEW_LINE = "\n";
 
     private Integer numsOfBooks;
     private Integer numsOfLibraries;
@@ -140,10 +145,38 @@ public class Database {
         return libraries;
     }
 
-    public void write() {
+    public void write(Submission submission) throws IOException {
 
+        File file = new File(OUTPUT_FILE_NAME);
+        FileWriter out = new FileWriter(file);
 
+        writeNumOfLibs(out, submission);
+        writeLibraries(out, submission);
 
+        out.close();
+    }
+
+    private void writeNumOfLibs(FileWriter out, Submission sub) throws IOException {
+        Integer numOfLibs = sub.getNumsOfLibs();
+        out.write(String.valueOf(numOfLibs) + NEW_LINE);
+    }
+
+    private void writeLibraries(FileWriter out, Submission sub) throws IOException {
+        List<LibSubmission> libSubmissions = sub.getLibSubmissions();
+
+        for (LibSubmission libSub : libSubmissions) {
+
+            Integer id = libSub.getIdLib();
+            List<Book> books = libSub.getBooks();
+            int numOfBooks = books.size();
+
+            out.write(id.toString() + " " + numOfBooks + NEW_LINE);
+
+            for (Book b : books) {
+                out.write(String.valueOf(b.getId()) + " ");
+            }
+            out.write(NEW_LINE);
+        }
     }
 
 }
