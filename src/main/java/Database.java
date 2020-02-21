@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Database {
 
-    public static final String OUTPUT_FILE_NAME = "answer_b.out";
+    public static final String OUTPUT_FILE_NAME = "answer.out";
     public static final String NEW_LINE = "\n";
 
     private Integer numsOfBooks;

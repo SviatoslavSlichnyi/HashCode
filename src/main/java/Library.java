@@ -56,8 +56,9 @@ public class Library implements Comparable<Library> {
     }
 
     private void sortBooks(List<Book> bookList) {
+        //Collections.sort(bookList);
         bookList.sort(Collections.reverseOrder());
-    }
+    }//Collections.reverseOrder()
 
     public boolean containBook(Book book) {
         return this.books.contains(book);
@@ -117,6 +118,9 @@ public class Library implements Comparable<Library> {
 
     @Override
     public int compareTo(Library library) {
-        return Integer.compare(this.getProfit(), library.profit);
+        if(this.getProfit()==library.getProfit()){
+            return Integer.compare(library.getSignupDays(),this.getSignupDays());
+        }
+        return Integer.compare(this.getProfit(), library.getProfit());
     }
 }

@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Service {
     private Database database;
     static private Integer daysPast = 0;
-    List<Book> markedBooks = new ArrayList<>();
+    Map<Integer,Book> markedBooks = new HashMap<>();
 
     public Service() {
     }
@@ -28,10 +26,12 @@ public class Service {
             List<Book> mostValBooks = mostValuableLibrary.getBooks();
             for (int i = 0; i < mostValuableLibrary.getNumsOfBookToSend() && i<mostValuableLibrary.getBooks().size(); i++) {
                 libSubmission.addBook(mostValBooks.get(i));
-                markedBooks.add(mostValBooks.get(i));
+                markedBooks.put(mostValBooks.get(i).getId(),mostValBooks.get(i)) ;
             }
+            if(libSubmission.getBooks().size()>0)
             submission.addLibSub(libSubmission);
             daysPast += mostValuableLibrary.getSignupDays();
+            System.out.println(submission.getLibSubmissions().size());
             libraries.remove(mostValuableLibrary);
         }
         return submission;
@@ -47,7 +47,7 @@ public class Service {
         library.setProfit(0);
         library.setNumsOfBookToSend(0);
         for (int i = 0; i < sendDays * library.getNumsOfBooksShippedPerDay() && i < books.size(); i++) {
-            if (markedBooks.contains(books.get(i))) {
+            if (markedBooks.containsKey(books.get(i).getId())) {
                 books.remove(i);
                 i--;
                 continue;
