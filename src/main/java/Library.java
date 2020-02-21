@@ -118,9 +118,9 @@ public class Library implements Comparable<Library> {
 
     @Override
     public int compareTo(Library library) {
-        if(this.getProfit()==library.getProfit()){
-            return Integer.compare(library.getSignupDays(),this.getSignupDays());
+        if(library.getSignupDays()==this.getSignupDays()){
+            return Integer.compare(this.getProfit(), library.getProfit());
         }
-        return Integer.compare(this.getProfit(), library.getProfit());
+        return Integer.compare(library.getSignupDays(),this.getSignupDays());
     }
 }
