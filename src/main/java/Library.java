@@ -118,9 +118,14 @@ public class Library implements Comparable<Library> {
 
     @Override
     public int compareTo(Library library) {
+        Double vageThis = this.profit.doubleValue() / this.signupDays.doubleValue();
+        Double vageLibr = library.profit.doubleValue() / library.signupDays.doubleValue();
+        return Double.compare(vageThis,vageLibr);
+        /*
         if(library.getSignupDays()==this.getSignupDays()){
             return Integer.compare(this.getProfit(), library.getProfit());
         }
         return Integer.compare(library.getSignupDays(),this.getSignupDays());
+        */
     }
 }

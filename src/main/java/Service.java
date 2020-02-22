@@ -18,7 +18,12 @@ public class Service {
         while (daysPast < database.getDaysForScanning() && database.getLibraries().size() > 0) {
             for (int i = 0; i < libraries.size(); i++) {
                 calculateProfit(libraries.get(i));
+                if (libraries.get(i).getProfit()==0){
+                    libraries.remove(i);
+                    i--;
+                }
             }
+            if(libraries.size()==0) continue;
             sortLibs(libraries);
             Library mostValuableLibrary = libraries.get(0);
             LibSubmission libSubmission = new LibSubmission();
@@ -55,7 +60,6 @@ public class Service {
             library.setProfit(library.getProfit() + books.get(i).getScore());
             library.setNumsOfBookToSend(library.getNumsOfBookToSend() + 1);
         }
-
     }
 
     public void setDatabase(Database database) {
